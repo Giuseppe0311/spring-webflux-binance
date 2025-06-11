@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: binance
+
+
+
+
+clients:
+  binance:
+    websocket:
+      url: wss://stream.binance.com:9443
+
