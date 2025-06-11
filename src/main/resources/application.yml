@@ -2,7 +2,8 @@ spring:
   application:
     name: binance
 
-
+server:
+  port: ${PORT:8080}
 
 
 clients:
