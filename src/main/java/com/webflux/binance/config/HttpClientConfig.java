@@ -10,6 +10,7 @@ public class HttpClientConfig {
     @Bean
     public HttpClient httpClient() {
         return HttpClient.create()
+                .secure()
                 .compress(true)
                 .keepAlive(true);
     }
