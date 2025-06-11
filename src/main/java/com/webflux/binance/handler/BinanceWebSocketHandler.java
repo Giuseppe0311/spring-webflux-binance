@@ -65,7 +65,6 @@ public class BinanceWebSocketHandler implements WebSocketHandler {
                                                                     return session.textMessage(json);
                                                                 }
                                                         )
-                                                        .doOnNext(System.out::println)
                                                         .doOnError(throwable -> log.error("Error procesando message: {}", message, throwable))
                                                         .subscribeOn(Schedulers.parallel())
                                                         .onErrorContinue((throwable, o) ->
