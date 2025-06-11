@@ -33,6 +33,7 @@ public class BinanceClient {
     @PostConstruct
     public void init() {
         Flux<Void> connectionStream = httpClient
+                .secure()
                 .websocket(WebsocketClientSpec.builder().maxFramePayloadLength(256 * 1024).build())
                 .uri(webSocketUrl + "/ws")
                 .handle((inbound, outbound) -> {
