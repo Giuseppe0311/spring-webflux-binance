@@ -30,7 +30,6 @@ public class BinanceWebSocketHandler implements WebSocketHandler {
     private final ExchangeService exchangeService;
 
 
-
     @Override
     public Mono<Void> handle(WebSocketSession session) {
         Flux<WebSocketMessage> outbound = binanceClient.messageStream()
@@ -66,6 +65,7 @@ public class BinanceWebSocketHandler implements WebSocketHandler {
                                                                     return session.textMessage(json);
                                                                 }
                                                         )
+                                                        .doOnNext(System.out::println)
                                                         .doOnError(throwable -> log.error("Error procesando message: {}", message, throwable))
                                                         .subscribeOn(Schedulers.parallel())
                                                         .onErrorContinue((throwable, o) ->
