@@ -12,3 +12,10 @@ clients:
     websocket:
       url: wss://stream.binance.com:9443
 
+logging:
+  level:
+    root: INFO
+    reactor.netty.http.client: DEBUG
+    reactor.netty.tcp: DEBUG
+    com.webflux.binance.client: DEBUG
+    com.webflux.binance.handler: DEBUG
